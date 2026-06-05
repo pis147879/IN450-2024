@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-Get["/home/gabriele/IN450/Progetto IN450/SIMECK.wl"]
+Get["SIMECK.wl"]
 BitParity[x_Integer] := Mod[Total[IntegerDigits[x, 2]], 2]
 StateToInt[state_List, n_] := FromDigits[Join[IntegerDigits[state[[1]], 2, n], IntegerDigits[state[[2]], 2, n]], 2]
 ClearAll[InvLastRound]

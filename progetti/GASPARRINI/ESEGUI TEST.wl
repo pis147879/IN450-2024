@@ -4,11 +4,11 @@
 (**)
 
 
-Get["/home/gabriele/IN450/Progetto IN450/SIMECK.wl"];
-Get["/home/gabriele/IN450/Progetto IN450/TABLE.wl"];
-Get["/home/gabriele/IN450/Progetto IN450/TRAIL.wl"];
-Get["/home/gabriele/IN450/Progetto IN450/BOOMERANG.wl"];
-Get["/home/gabriele/IN450/Progetto IN450/KEYRECOVERY.wl"]
+Get["SIMECK.wl"];
+Get["TABLE.wl"];
+Get["TRAIL.wl"];
+Get["BOOMERANG.wl"];
+Get["KEYRECOVERY.wl"]
 (*parametri modificabili*)
 n=3; (*dimensione del blocco *)
 masterKey = RandomInteger[{0, 2^(4*n)-1}];
@@ -28,13 +28,13 @@ E0fun[x_] := E0[x, keys, R];
 Emfun[x_] := Em[E0[x,keys,R], keys, R, S];
 E1fun[x_] := E1[Em[E0[x,keys,R],keys,R,S], keys, R, S];
 ddt = CalcoloDDT[E0fun,n];
-TabellaDDT[ddt]
+Print[TabellaDDT[ddt]];
 Print["\n STEP 2: Calcolo DLCT "];
 dlct= CalcoloDLCT[Emfun,n];
 TabellaDLCT[dlct]
 Print["\n STEP 3: Calcolo LAT "];
 lat= CalcoloLAT[E1fun,n];
-TabellaLAT[lat]
+Print[TabellaLAT[lat]];
 
 
 
@@ -63,8 +63,6 @@ result = KeyRecovery[keys,totalRound,Trails, numQuartetti, n];
 PrintKeyRecovery[result,n]
 Print[result]
 Print["\n Esperimento completato"];
-
-
 
 
 
